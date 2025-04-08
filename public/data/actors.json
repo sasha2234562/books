@@ -14,7 +14,7 @@
             "name": "Seven Bucks Productions",
             "catchPhrase": "Success is not given, it's earned"
         },
-        "photo": "../../src/assets/actors/dwayne-johnson.png"
+        "photo": "../data/actors/dwayne-johnson.png"
     },
     {
         "id": 2,
@@ -31,7 +31,7 @@
             "name": "Blossom Films",
             "catchPhrase": "Creating compelling stories"
         },
-        "photo": "../../src/assets/actors/nicole-kidman.png"
+        "photo": "../data/actors/nicole-kidman.png"
     },
     {
         "id": 3,
@@ -48,7 +48,7 @@
             "name": "Pride of Gypsies",
             "catchPhrase": "Live authentically"
         },
-        "photo": "../../src/assets/actors/jason-momoa_1.png"
+        "photo": "../data/actors/jason-momoa_1.png"
     },
     {
         "id": 4,
@@ -65,7 +65,7 @@
             "name": "Marvel Studios",
             "catchPhrase": "Heroic Stories"
         },
-        "photo": "../../src/assets/actors/scarlett-johansson.png"
+        "photo": "../data/actors/scarlett-johansson.png"
     },
     {
         "id": 5,
@@ -82,7 +82,7 @@
             "name": "Team Downey",
             "catchPhrase": "All things creative"
         },
-        "photo": "../../src/assets/actors/robert-downey-jr.png"
+        "photo": "../data/actors/robert-downey-jr.png"
     },
     {
         "id": 6,
@@ -99,7 +99,7 @@
             "name": "Appian Way Productions",
             "catchPhrase": "Producing impactful stories"
         },
-        "photo": "../../src/assets/actors/leonardo-diCaprio_1.png"
+        "photo": "../data/actors/leonardo-diCaprio_1.png"
     },
     {
         "id": 7,
@@ -116,7 +116,7 @@
             "name": "Streep Productions",
             "catchPhrase": "Excellence in storytelling"
         },
-        "photo": "../../src/assets/actors/meryl-streep.png"
+        "photo": "../data/actors/meryl-streep.png"
     },
     {
         "id": 8,
@@ -133,7 +133,7 @@
             "name": "Hemsworth Productions",
             "catchPhrase": "Empowering stories of heroism"
         },
-        "photo": "../../src/assets/actors/chris-hemsworth.png"
+        "photo": "../data/actors/chris-hemsworth.png"
     },
     {
         "id": 9,
@@ -150,7 +150,7 @@
             "name": "Freestyle Productions",
             "catchPhrase": "Creating magical experiences"
         },
-        "photo": "../../src/assets/actors/emma-watson.png"
+        "photo": "../data/actors/emma-watson.png"
     },
     {
         "id": 10,
@@ -167,7 +167,7 @@
             "name": "Infinitum Nihil",
             "catchPhrase": "Creative freedom"
         },
-        "photo": "../../src/assets/actors/johnny-depp.png"
+        "photo": "../data/actors/johnny-depp.png"
     },
     {
         "id": 11,
@@ -184,7 +184,7 @@
             "name": "Pilot Wave",
             "catchPhrase": "Empowering women through stories"
         },
-        "photo": "../../src/assets/actors/gal-gadot.png"
+        "photo": "../data/actors/gal-gadot.png"
     },
     {
         "id": 12,
@@ -201,6 +201,6 @@
             "name": "Jolie Pas",
             "catchPhrase": "Stories that inspire change"
         },
-        "photo": "../../src/assets/actors/angelina-jolie.png"
+        "photo": "../data/actors/angelina-jolie.png"
     }
 ]
