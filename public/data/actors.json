@@ -1,0 +1,206 @@
+[
+    {
+        "id": 1,
+        "name": "Dwayne Johnson",
+        "email": "dwayne.johnson@example.com",
+        "phone": "1-555-555-0001",
+        "website": "therock.com",
+        "age": 52,
+        "address": {
+            "street": "123 Hollywood Blvd",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Seven Bucks Productions",
+            "catchPhrase": "Success is not given, it's earned"
+        },
+        "photo": "../../src/assets/actors/dwayne-johnson.png"
+    },
+    {
+        "id": 2,
+        "name": "Nicole Kidman",
+        "email": "nicole.kidman@example.com",
+        "phone": "1-555-555-0002",
+        "website": "nicolekidman.com",
+        "age": 57,
+        "address": {
+            "street": "456 Sunset Blvd",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Blossom Films",
+            "catchPhrase": "Creating compelling stories"
+        },
+        "photo": "../../src/assets/actors/nicole-kidman.png"
+    },
+    {
+        "id": 3,
+        "name": "Jason Momoa",
+        "email": "jason.momoa@example.com",
+        "phone": "1-555-555-0003",
+        "website": "jasonmomoa.com",
+        "age": 45,
+        "address": {
+            "street": "321 Ocean Drive",
+            "city": "Honolulu"
+        },
+        "company": {
+            "name": "Pride of Gypsies",
+            "catchPhrase": "Live authentically"
+        },
+        "photo": "../../src/assets/actors/jason-momoa_1.png"
+    },
+    {
+        "id": 4,
+        "name": "Scarlett Johansson",
+        "email": "scarlett.johansson@example.com",
+        "phone": "1-555-555-0004",
+        "website": "scarlettj.com",
+        "age": 40,
+        "address": {
+            "street": "123 Marvel St",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Marvel Studios",
+            "catchPhrase": "Heroic Stories"
+        },
+        "photo": "../../src/assets/actors/scarlett-johansson.png"
+    },
+    {
+        "id": 5,
+        "name": "Robert Downey Jr.",
+        "email": "robert.downey@example.com",
+        "phone": "1-555-555-0005",
+        "website": "robertdowneyjr.com",
+        "age": 60,
+        "address": {
+            "street": "456 Superhero Ave",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Team Downey",
+            "catchPhrase": "All things creative"
+        },
+        "photo": "../../src/assets/actors/robert-downey-jr.png"
+    },
+    {
+        "id": 6,
+        "name": "Leonardo DiCaprio",
+        "email": "leonardo.dicaprio@example.com",
+        "phone": "1-555-555-0006",
+        "website": "leonardodicaprio.com",
+        "age": 50,
+        "address": {
+            "street": "789 Star Rd",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Appian Way Productions",
+            "catchPhrase": "Producing impactful stories"
+        },
+        "photo": "../../src/assets/actors/leonardo-diCaprio_1.png"
+    },
+    {
+        "id": 7,
+        "name": "Meryl Streep",
+        "email": "meryl.streep@example.com",
+        "phone": "1-555-555-0007",
+        "website": "merylstreep.com",
+        "age": 75,
+        "address": {
+            "street": "456 Movie St",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Streep Productions",
+            "catchPhrase": "Excellence in storytelling"
+        },
+        "photo": "../../src/assets/actors/meryl-streep.png"
+    },
+    {
+        "id": 8,
+        "name": "Chris Hemsworth",
+        "email": "chris.hemsworth@example.com",
+        "phone": "1-555-555-0008",
+        "website": "chrishemsworth.com",
+        "age": 41,
+        "address": {
+            "street": "321 Asgard Ave",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Hemsworth Productions",
+            "catchPhrase": "Empowering stories of heroism"
+        },
+        "photo": "../../src/assets/actors/chris-hemsworth.png"
+    },
+    {
+        "id": 9,
+        "name": "Emma Watson",
+        "email": "emma.watson@example.com",
+        "phone": "1-555-555-0009",
+        "website": "emmawatson.com",
+        "age": 34,
+        "address": {
+            "street": "123 Wizarding World Blvd",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Freestyle Productions",
+            "catchPhrase": "Creating magical experiences"
+        },
+        "photo": "../../src/assets/actors/emma-watson.png"
+    },
+    {
+        "id": 10,
+        "name": "Johnny Depp",
+        "email": "johnny.depp@example.com",
+        "phone": "1-555-555-0010",
+        "website": "johnnydepp.com",
+        "age": 61,
+        "address": {
+            "street": "258 Pirate's Cove",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Infinitum Nihil",
+            "catchPhrase": "Creative freedom"
+        },
+        "photo": "../../src/assets/actors/johnny-depp.png"
+    },
+    {
+        "id": 11,
+        "name": "Gal Gadot",
+        "email": "gal.gadot@example.com",
+        "phone": "1-555-555-0011",
+        "website": "galgadot.com",
+        "age": 39,
+        "address": {
+            "street": "123 Amazonian Way",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Pilot Wave",
+            "catchPhrase": "Empowering women through stories"
+        },
+        "photo": "../../src/assets/actors/gal-gadot.png"
+    },
+    {
+        "id": 12,
+        "name": "Angelina Jolie",
+        "email": "angelina.jolie@example.com",
+        "phone": "1-555-555-0013",
+        "website": "angelinajolie.com",
+        "age": 49,
+        "address": {
+            "street": "789 Adventure St",
+            "city": "Los Angeles"
+        },
+        "company": {
+            "name": "Jolie Pas",
+            "catchPhrase": "Stories that inspire change"
+        },
+        "photo": "../../src/assets/actors/angelina-jolie.png"
+    }
+]
