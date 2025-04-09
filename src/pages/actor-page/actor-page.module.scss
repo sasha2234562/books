@@ -38,8 +38,11 @@
   color: $link-color;
   transition: 0.3s ease-in-out;
 
-  &:hover {
-    color: $link-color-hover;
+  // Styles for hover-capable devices go here
+  @media (hover: hover) {
+    &:hover {
+      color: $link-color-hover;
+    }
   }
 }
 

@@ -27,7 +27,17 @@
   transition: 0.3s ease-in-out;
   text-wrap: nowrap;
 
-  &:hover {
-    color: $link-color-hover;
+  // Styles for hover-capable devices go here
+  @media (hover: hover) {
+    &:hover {
+      color: $link-color-hover;
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .container_header {
+    flex-direction: column;
+    gap: 12px;
   }
 }
