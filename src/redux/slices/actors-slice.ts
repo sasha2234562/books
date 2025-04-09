@@ -1,5 +1,6 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {getUsers} from "../thunks/get-users.ts";
+import {getSingleUsers} from "../thunks/get-single-user.ts";
 
 export interface Actor {
     id: number;
@@ -20,28 +21,35 @@ export interface Actor {
 }
 
 interface InitialState {
+    showLoader: boolean;
     actors: Actor[];
-    selectedActor: Actor | null;
+    singleActor: Actor | null;
 }
 
 const initialState: InitialState = {
+    showLoader: false,
     actors: [],
-    selectedActor: null,
+    singleActor: null,
 }
 
 export const actorsSlice = createSlice({
     name: 'actorsSlice',
     initialState,
     reducers: {
-        setSelectActor: (state, action) => {
-            state.selectedActor = action.payload;
+        setShowLoader: (state, action: PayloadAction<boolean>) => {
+            state.showLoader = action.payload;
         }
     },
-    extraReducers: builder => [
+    extraReducers: builder => {
         builder.addCase(getUsers.fulfilled, (state, action) => {
-            state.actors = action.payload?.data
-        })
-    ]
+            state.actors = action.payload?.data;
+            state.showLoader = false;
+        });
+        builder.addCase(getSingleUsers.fulfilled, (state, action) => {
+            state.singleActor = action.payload?.data;
+            state.showLoader = false;
+        });
+    }
 })
 
-export const {setSelectActor} = actorsSlice.actions;
+export const {setShowLoader} = actorsSlice.actions;

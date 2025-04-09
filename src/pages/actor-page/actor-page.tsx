@@ -1,24 +1,25 @@
-import {useEffect} from "react";
-import {useAppSelector} from "../../redux/store.ts";
-import {useNavigate} from "react-router";
+import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
 import s from './actor-page.module.scss';
+import {useEffect} from "react";
+import {useParams} from "react-router";
+import {getSingleUsers} from "../../redux/thunks/get-single-user.ts";
 
 const ActorPage = () => {
-    const selectActor = useAppSelector(state => state.actors.selectedActor);
-    const navigate = useNavigate();
+    const dispatch = useAppDispatch();
+    const selectActor = useAppSelector(state => state.actors.singleActor);
+    const location = useParams();
 
     useEffect(() => {
-        // Navigate back if selectActor is null
-        if (!selectActor) {
-            navigate('/');
+        if (location.id) {
+            dispatch(getSingleUsers(+location.id));
         }
-    }, [selectActor, navigate]);
+    }, [location.id]);
 
-    // If selectActor is not loaded yet, return null to render nothing
+    // If selectActor is not loaded
     if (!selectActor) {
         return null;
     }
-
+    console.log(selectActor)
     return (
         <main className={s.actor_page_container}>
             <div className={s.actor_section_info}>

@@ -47,7 +47,7 @@ const MainPage = () => {
 
     useEffect(() => {
         dispatch(getUsers());
-    }, [dispatch]);
+    }, []);
 
     const filterAndSortActors = useCallback((searchValue: string, sortValue: string): void => {
         const filtered = actors.filter(item => item.name.toLowerCase().startsWith(searchValue.toLowerCase()));
