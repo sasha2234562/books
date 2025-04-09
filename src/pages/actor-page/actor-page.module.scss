@@ -6,7 +6,7 @@
   padding: 16px;
 }
 
-.actor_section_info {
+.actor_section_info, .actor_section_contact {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -14,19 +14,35 @@
   justify-content: flex-start;
 }
 
+.actor_section_contact {
+  gap: 12px;
+}
+
 .actor_photo {
   object-fit: cover;
-  aspect-ratio: 16/9;
+  aspect-ratio: $aspect-ratio;
   border-radius: $image-radius;
 }
-.actor_name{
-  font-size: 30px;
+
+.actor_name {
+  font-size: $font-size-big;
   font-weight: 700;
 }
-.contact_info{
-  font-size: 20px;
+
+.contact, .contact_link {
+  font-size: $font-size-middle;
   font-weight: 500;
 }
+
+.contact_link {
+  color: $link-color;
+  transition: 0.3s ease-in-out;
+
+  &:hover {
+    color: $link-color-hover;
+  }
+}
+
 @media screen and (max-width: 790px) {
   .actor_page_container {
     flex-direction: column;

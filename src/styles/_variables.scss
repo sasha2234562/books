@@ -1,10 +1,21 @@
+// image
+$image-radius: 6px;
+$aspect-ratio: 16 / 9;
+
+// link
+$link-color: #0b0064;
+$link-color-hover: #1100a4;
+
+// border
+
+$border-active: #352C8D;
+$border-default: #CFCFCF;
+
+// text
 $font-size-small: 16px;
 $font-size-middle: 24px;
 $font-size-big: 30px;
 $name-color: #363636;
 $title-color: #0e0e0e;
-$image-radius: 6px;
-$border-active: #352C8D;
-$border-default: #CFCFCF;
 $label-color: #303030;
-$placeholder-color: #4D4D4D;
+$placeholder-color: #949494;

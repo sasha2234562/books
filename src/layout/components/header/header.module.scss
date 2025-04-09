@@ -1,6 +1,6 @@
 @import '../../../styles/variables';
 
-.container_header{
+.container_header {
   background-color: rgba(101, 101, 101, 0.56);
   width: 100%;
   display: flex;
@@ -9,11 +9,25 @@
   justify-content: space-evenly;
   padding: 16px 0;
 }
-.logo{
+
+.logo {
   height: 60px;
 }
-.title_header{
+
+.title_header {
   font-size: clamp($font-size-small, 3vw, $font-size-middle);
   text-align: center;
   color: $title-color;
+}
+
+.link {
+  font-size: $font-size-small;
+  font-weight: 400;
+  color: $link-color;
+  transition: 0.3s ease-in-out;
+  text-wrap: nowrap;
+
+  &:hover {
+    color: $link-color-hover;
+  }
 }

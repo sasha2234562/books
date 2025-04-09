@@ -17,13 +17,16 @@ const schema = z.object({
 
 type UserSchema = z.infer<typeof schema>;
 
-const sortOptions = ['по возрастанию', 'по убыванию']
+const sortOptions = ['по возрастанию', 'по убыванию'];
 
-function debounce<T extends (...args: any[]) => any>(func: T, delay: number) {
+function debounce<T extends (...args: never[]) => void>(func: T, delay: number) {
+    // Variable to hold the timeout ID for debounce
     let timer: number;
-    return function (...args: Parameters<T>) {
+    return (...args: Parameters<T>): void => {
+        // Clear the existing timeout
         clearTimeout(timer);
         timer = setTimeout(() => {
+            // Call the original function with the provided arguments
             func(...args);
         }, delay);
     };
@@ -39,39 +42,41 @@ const MainPage = () => {
         },
         resolver: zodResolver(schema)
     });
-    const search = watch('search');
-    const sort = watch('sort')
 
+    const search = watch('search');
+    const sort = watch('sort');
     const [filteredActors, setFilteredActors] = useState<Actor[]>(actors);
 
     useEffect(() => {
         dispatch(getUsers());
-    }, []);
+    }, [dispatch]);
 
-    useEffect(() => {
-        console.log(111)
-        debouncedFilterAndSortActors(search, sort)
-    }, [search, sort, actors]);
+    const filterAndSortActors = useCallback((searchValue: string, sortValue: string): void => {
+        const filtered = actors.filter(item => item.name.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    const filterAndSortActors = useCallback((searchValue: string, sortValue: string) => {
-        const filtered = actors.filter(item => item.name.toLowerCase().startsWith(searchValue.toLowerCase()))
-            .sort((a, b) => sortValue === sortOptions[1] ?  b.age - a.age : a.age - b.age);
+        // Sort only if sort option is selected
+        if (sortValue) {
+            filtered.sort((a, b) => sortValue === sortOptions[1] ? b.age - a.age : a.age - b.age);
+        }
+
         setFilteredActors(filtered);
     }, [actors]);
 
-    const debouncedFilterAndSortActors = useMemo(() => {
-        return debounce(filterAndSortActors, 300)
-    }, [filterAndSortActors]);
+    const debouncedFilterAndSortActors = useMemo(() => debounce(filterAndSortActors, 300), [filterAndSortActors]);
+
+    useEffect(() => {
+        debouncedFilterAndSortActors(search, sort);
+    }, [search, sort, debouncedFilterAndSortActors]);
 
     return (
         <main className={s.main_container}>
             <form className={s.form_container}>
-                <Input {...register("search")} />
+                <Input {...register("search")} placeholder={'Поиск'}/>
                 <Select
                     options={sortOptions}
                     onClickSelect={(value) => setValue('sort', value)}
                     value={watch('sort')}
-                    defaultValue={sortOptions[0]}
+                    placeholder={'Сортировка по возрасту'}
                 />
             </form>
             <section className={s.cards_section}>
