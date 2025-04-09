@@ -19,7 +19,7 @@ const ActorPage = () => {
     if (!selectActor) {
         return null;
     }
-    console.log(selectActor)
+
     return (
         <main className={s.actor_page_container}>
             <div className={s.actor_section_info}>
