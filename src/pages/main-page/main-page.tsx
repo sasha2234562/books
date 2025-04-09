@@ -1,14 +1,12 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
 import {getUsers} from "../../redux/thunks/get-users.ts";
-import {CardActor} from "../../components/card-actor/card-actor.tsx";
 import s from './main-page.module.scss';
 import {useForm} from "react-hook-form";
 import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Input} from "../../components/input/input.tsx";
+import {Input, Select, CardActor} from "../../components";
 import {Actor} from "../../redux/slices/actors-slice.ts";
-import {Select} from "../../components/select/select.tsx";
 
 const schema = z.object({
     search: z.string(),

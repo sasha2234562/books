@@ -10,7 +10,7 @@ const ActorPage = () => {
     useEffect(() => {
         // Navigate back if selectActor is null
         if (!selectActor) {
-            navigate(-1);
+            navigate('/');
         }
     }, [selectActor, navigate]);
 
