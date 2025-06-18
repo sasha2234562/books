@@ -1,4 +1,5 @@
-export {Loader} from "./loader/loader.tsx";
-export {Select} from "./select/select.tsx";
-export {Input} from "./input/input.tsx";
-export {CardActor} from "./card-actor/card-actor.tsx";
+export { Loader } from './loader/loader.tsx';
+export { Input } from './ul/input/input.tsx';
+export { CardBook } from '../pages/main-page/components/card-book/card-book.tsx';
+
+export * from './ul/index.ts';

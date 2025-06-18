@@ -1,89 +1,66 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
-import {useAppDispatch, useAppSelector} from "../../redux/store.ts";
-import {getUsers} from "../../redux/thunks/get-users.ts";
-import s from './main-page.module.scss';
-import {useForm} from "react-hook-form";
-import {z} from "zod";
-import {zodResolver} from "@hookform/resolvers/zod";
-import {Input, Select, CardActor} from "../../components";
-import {Actor} from "../../redux/slices/actors-slice.ts";
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
+import s from './main-page.module.css';
+import { Button, CardBook, Input } from '../../components';
+import { Book, fetchBooks } from '../../api/fetch-books.ts';
+import { FormAddBook } from './components/form-add-book/form-add-book.tsx';
+import classNames from 'classnames';
 
-const schema = z.object({
-    search: z.string(),
-    sort: z.string(),
-});
+export const MainPage = () => {
+  const [books, setBooks] = useState<Book[]>([]);
+  const [booksFilter, setFilterBooks] = useState<Book[]>([]);
+  const [searchValue, setSearchValue] = useState('');
+  const [openModalFormAddBook, setOpenModalFormAddBook] = useState(false);
 
-type UserSchema = z.infer<typeof schema>;
+  useEffect(() => {
+    fetchBooks()
+      .then(res => {
+        setBooks(res);
+        setFilterBooks(res);
+      })
+      .catch(console.error);
+  }, []);
 
-const sortOptions = ['по возрастанию', 'по убыванию'];
+  const onClickForm = useCallback(() => setOpenModalFormAddBook(prev => !prev), []);
 
-function debounce<T extends (...args: never[]) => void>(func: T, delay: number) {
-    // Variable to hold the timeout ID for debounce
-    let timer: number;
-    return (...args: Parameters<T>): void => {
-        // Clear the existing timeout
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            // Call the original function with the provided arguments
-            func(...args);
-        }, delay);
-    };
-}
+  const onClickAddBook = useCallback(
+    (value: Book) => {
+      setBooks(prev => [value, ...prev]);
+      setFilterBooks([value, ...books]);
+      setOpenModalFormAddBook(false);
+      setSearchValue('');
+    },
+    [books],
+  );
 
-const MainPage = () => {
-    const dispatch = useAppDispatch();
-    const actors = useAppSelector(state => state.actors.actors);
-    const {watch, register, setValue} = useForm<UserSchema>({
-        defaultValues: {
-            search: '',
-            sort: '',
-        },
-        resolver: zodResolver(schema)
-    });
-
-    const search = watch('search');
-    const sort = watch('sort');
-    const [filteredActors, setFilteredActors] = useState<Actor[]>(actors);
-
-    useEffect(() => {
-        dispatch(getUsers());
-    }, []);
-
-    const filterAndSortActors = useCallback((searchValue: string, sortValue: string): void => {
-        const filtered = actors.filter(item => item.name.toLowerCase().startsWith(searchValue.toLowerCase()));
-
-        // Sort only if sort option is selected
-        if (sortValue) {
-            filtered.sort((a, b) => sortValue === sortOptions[1] ? b.age - a.age : a.age - b.age);
-        }
-
-        setFilteredActors(filtered);
-    }, [actors]);
-
-    const debouncedFilterAndSortActors = useMemo(() => debounce(filterAndSortActors, 300), [filterAndSortActors]);
-
-    useEffect(() => {
-        debouncedFilterAndSortActors(search, sort);
-    }, [search, sort, debouncedFilterAndSortActors]);
-
-    return (
-        <main className={s.main_container}>
-            <form className={s.form_container}>
-                <Input {...register("search")} placeholder={'Поиск'}/>
-                <Select
-                    options={sortOptions}
-                    onClickSelect={(value) => setValue('sort', value)}
-                    value={watch('sort')}
-                    placeholder={'Сортировка по возрасту'}
-                />
-            </form>
-            <section className={s.cards_section}>
-                {filteredActors.map((actor) => (
-                    <CardActor key={actor.id} actor={actor}/>
-                ))}
-            </section>
-        </main>
+  const onClickFilterBooks = useCallback(() => {
+    if (!searchValue) {
+      setFilterBooks(books);
+    }
+    const filtered = books.filter(
+      item =>
+        item.author.toLowerCase().startsWith(searchValue.toLowerCase()) ||
+        item.title.toLowerCase().startsWith(searchValue.toLowerCase()),
     );
-};
+    setFilterBooks(filtered);
+  }, [searchValue, books]);
 
-export default MainPage;
+  const onChangeSearch = useCallback((value: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(value.target.value);
+  }, []);
+
+  return (
+    <main className={s.main_container}>
+      <Button label={'Добавить книгу'} className={s.button} onClick={onClickForm} />
+      <form className={s.form_container}>
+        <Input placeholder={'Поиск по имени автора или книги'} value={searchValue} onChange={onChangeSearch} />
+        <Button label={'Поиск'} type={'button'} className={s.button} onClick={onClickFilterBooks} />
+      </form>
+      <section className={classNames(s.cards_section, booksFilter.length < 3 && s.cards_section_alone)}>
+        {booksFilter.map(book => (
+          <CardBook key={book.id} book={book} />
+        ))}
+      </section>
+      {openModalFormAddBook && <FormAddBook onClickClose={onClickForm} onClickAddBook={onClickAddBook} />}
+    </main>
+  );
+};

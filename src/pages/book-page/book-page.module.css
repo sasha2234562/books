@@ -1,0 +1,39 @@
+.book_page_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 16px;
+}
+
+.book_section_info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  justify-content: flex-start;
+}
+
+.book_photo {
+  object-fit: cover;
+  aspect-ratio: var(--aspect-ratio);
+  border-radius: var(--image-radius);
+  width: 100%;
+  max-width: 400px;
+}
+
+.book_title {
+  font-size: var(--font-size-big);
+  font-weight: 700;
+}
+.book_info {
+  display: flex;
+  justify-content: space-between;
+
+  font-size: var(--font-size-small);
+  font-weight: 600;
+}
+.book_section {
+  display: flex;
+  gap: 16px;
+}

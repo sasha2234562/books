@@ -1,0 +1,40 @@
+.container_header {
+  background-color: rgba(101, 101, 101, 0.56);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-evenly;
+  padding: 16px 0;
+}
+
+.logo {
+  height: 60px;
+}
+
+.title_header {
+  font-size: clamp(var(--font-size-small), 3vw, var(--font-size-middle));
+  text-align: center;
+  color: var(--title-color);
+}
+
+.link {
+  font-size: var(--font-size-small);
+  font-weight: 400;
+  color: var(--link-color);
+  transition: 0.3s ease-in-out;
+  text-wrap: nowrap;
+
+  @media (hover: hover) {
+    &:hover {
+      color: var(--link-color-hover);
+    }
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .container_header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
