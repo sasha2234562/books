@@ -36,7 +36,7 @@ pnpm run dev
 Откройте ваш браузер и перейдите по адресу http://localhost:5173 (или другой порт, если указанный по умолчанию не доступен), чтобы увидеть приложение в действии.
 
 # Ссылка на развернутый проект:
-### https://darling-bombolone-3149f8.netlify.app
+### https://dynamic-kashata-a54d89.netlify.app/
 
 ```
 https://darling-bombolone-3149f8.netlify.app/
